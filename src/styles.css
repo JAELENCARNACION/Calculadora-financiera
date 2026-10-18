@@ -1,0 +1,331 @@
+/* ojo en esta hoja de estilo yo voy a nombrar cada codigo solo en la parte de aqui
+arriba para que no se me olviden para que se usan*/ 
+
+:root {
+  --color-principal: #2563eb;   /* azul de los botones*/
+  --color-principal-oscuro: #1d4ed8;
+  --color-fondo: #e8eef7;       /* fondo de la página */
+  --color-tarjeta: #ffffff;     /* fondo de la calculadora */
+  --color-panel: #f5f8fc;       /* fondo de los paneles  */
+  --color-texto: #000000;
+  --color-texto-suave: #125f4e;
+  --color-borde: #d5dfec;
+  --color-pantalla: #0f172a;    /* display del resultado */
+  --color-error: #dc2626;
+}
+
+
+* {
+  box-sizing: border-box;   
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: var(--color-texto);
+  background-image: url('/fondo-calculadora.png');
+  background-size: cover;   
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-attachment: fixed;  
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.shell {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+
+.header {
+  padding: 16px 0;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--color-principal);
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 700;
+
+}
+
+.brand {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+
+.intro {
+  text-align: center;
+  margin: 8px 0 20px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--color-principal);
+  background: #dbe7ff;
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+
+.intro h1 {
+  margin: 12px 0 6px;
+  font-size: 1.7rem;
+}
+
+.intro p {
+  margin: 0;
+  color: var(--color-texto-suave);
+}
+
+.calculator {
+  background: var(--color-tarjeta);
+  border-radius: 24px;
+  padding: 18px;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.18);
+}
+
+
+.tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;   /* 2 x 2 */
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.tab {
+  padding: 12px 8px;
+  border: 2px solid var(--color-borde);
+  border-radius: 14px;
+  background: var(--color-panel);
+  color: var(--color-texto);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s, background 0.15s, border-color 0.15s;
+}
+
+.tab:hover {
+  border-color: var(--color-principal);
+}
+
+.tab:active {
+  transform: scale(0.96);   /* efecto cuando presionas una tecla */
+}
+
+.tab.active {
+  background: var(--color-principal);
+  border-color: var(--color-principal);
+  color: #fff;
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.35);
+}
+
+.error {
+  margin: 0 0 14px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #fee2e2;
+  color: var(--color-error);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.layout {
+  display: grid;
+  gap: 16px;
+}
+
+.panel {
+  background: var(--color-panel);
+  border: 1px solid var(--color-borde);
+  border-radius: 18px;
+  padding: 18px;
+}
+
+.panel h2 {
+  margin: 0 0 14px;
+  font-size: 1.1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.field input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid var(--color-borde);
+  border-radius: 12px;
+  background: #fff;
+  font-size: 1.05rem;
+  color: var(--color-texto);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.field input:focus {
+  border-color: var(--color-principal);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+
+.field small {
+  color: var(--color-texto-suave);
+  font-size: 0.78rem;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 2fr 1fr;   
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.actions button {
+  padding: 14px;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+}
+
+.actions button:active {
+  transform: scale(0.96);
+}
+
+.primary {
+  border: none;
+  color: #fff;
+  background: linear-gradient(135deg, var(--color-principal), var(--color-principal-oscuro));
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.35);
+}
+
+.primary:hover {
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.5);
+  transform: translateY(-2px);
+}
+
+.secondary {
+  border: 2px solid var(--color-borde);
+  background: #fff;
+  color: var(--color-texto-suave);
+}
+
+.secondary:hover {
+  border-color: var(--color-error);
+  color: var(--color-error);
+}
+
+.empty {
+  text-align: center;
+  color: var(--color-texto-suave);
+}
+
+.empty-icon {
+  font-size: 2.4rem;
+  margin-bottom: 6px;
+}
+
+.empty h2 {
+  font-size: 1rem;
+}
+
+.empty p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.hero-result {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;        
+  gap: 4px;
+  padding: 16px;
+  margin-bottom: 14px;
+  border-radius: 14px;
+  background: var(--color-pantalla);
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+.hero-result strong {
+  color: #4ade80;             
+  font-size: 1.9rem;
+  font-family: 'Courier New', monospace;
+  word-break: break-all;
+}
+
+.metric {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-borde);
+  font-size: 0.9rem;
+}
+
+.metric span {
+  color: var(--color-texto-suave);
+}
+
+.metric strong {
+  white-space: nowrap;
+}
+
+.disclaimer {
+  margin: 14px 0 0;
+  font-size: 0.75rem;
+  color: var(--color-texto-suave);
+  text-align: center;
+}
+
+
+.footer {
+  margin-top: auto;
+  padding: 24px 16px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--color-texto-suave);
+}
+
+@media (min-width: 720px) {
+  .intro h1 {
+    font-size: 2.1rem;
+  }
+
+  .calculator {
+    padding: 24px;
+  }
+}
